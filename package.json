@@ -1,0 +1,24 @@
+{
+  "name": "techblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kkyun8/techblog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kkyun8/techblog/issues"
+  },
+  "homepage": "https://github.com/kkyun8/techblog#readme",
+  "devDependencies": {
+    "@vuepress/plugin-blog": "^1.0.0-alpha.49",
+    "vuepress": "^1.3.1"
+  }
+}
