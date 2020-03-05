@@ -1,21 +1,25 @@
-.DS_Store
+# node modules
 node_modules
-/dist
 
-# local env files
-.env.local
-.env.*.local
+# MacOS desktop services store
+.DS_Store
 
 # Log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+*.log
 
-# Editor directories and files
-.idea
+# Meta files
+TODOs.md
+
+# Editors
 .vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+.idea
+
+# VuePress temp directory
+.temp
+
+# Docs dist directory
+/vuepress
+
+# Typescript build dist
+packages/@vuepress/shared-utils/lib/
+packages/@vuepress/shared-utils/types/
