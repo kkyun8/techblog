@@ -28,7 +28,11 @@ module.exports = {
       },
       {
         title: "Java", // required
-        children: ["/git/cheat_sheet"]
+        children: ["/java/cheat_sheet", "/java/spring_boot"]
+      },
+      {
+        title: "Javascript", // required
+        children: ["/javascript/event"]
       },
       {
         title: "Vue", // required
