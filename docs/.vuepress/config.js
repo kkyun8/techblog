@@ -5,7 +5,7 @@ module.exports = {
     }
   },
   base: "/techblog/",
-  dest: "/docs",
+  dest: "/docs/.vuepress/dist",
   title: "Checkout Skills",
   themeConfig: {
     description: "description",
