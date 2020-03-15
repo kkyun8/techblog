@@ -4,8 +4,8 @@ module.exports = {
       lang: "ja"
     }
   },
-  base: "/",
-  dest: "/",
+  base: "/techblog",
+  dest: "/docs",
   title: "Checkout Skills",
   themeConfig: {
     description: "description",
