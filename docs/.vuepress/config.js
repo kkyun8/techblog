@@ -4,7 +4,7 @@ module.exports = {
       lang: "ja"
     }
   },
-  base: "/techblog",
+  base: "/techblog/",
   dest: "/docs",
   title: "Checkout Skills",
   themeConfig: {
