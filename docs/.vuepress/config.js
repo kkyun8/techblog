@@ -4,6 +4,8 @@ module.exports = {
       lang: "ja"
     }
   },
+  base: "/",
+  dest: "/",
   title: "Checkout Skills",
   themeConfig: {
     description: "description",
@@ -21,7 +23,7 @@ module.exports = {
       },
       {
         title: "Docker", // required
-        children: ["/docker/cheat_sheet"]
+        children: ["/docker/cheat_sheet", "/docker/docker"]
       },
       {
         title: "Sql" // required
@@ -32,7 +34,11 @@ module.exports = {
       },
       {
         title: "Javascript", // required
-        children: ["/javascript/event"]
+        children: [
+          "/javascript/object",
+          "/javascript/event",
+          "/javascript/closure"
+        ]
       },
       {
         title: "Vue", // required

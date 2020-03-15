@@ -20,6 +20,24 @@ git checkout -b local_branch_name origin/remote_branch_name
 git checkout -D local_branch_name
 ```
 
+##### Remote Branch List
+
+```bash
+git branch -r
+```
+
+##### Local & Remote Branch List
+
+```bash
+git branch -a
+```
+
+##### Get Remote Branch
+
+```bash
+git checkout -t origin/BRANCH_NAME
+```
+
 ### Git Log
 
 ```bash
