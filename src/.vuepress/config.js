@@ -16,7 +16,9 @@ module.exports = {
     ],
     sidebar: [
       ["/about", "About"],
-
+      {
+        title: "Web Fullstack"
+      },
       {
         title: "Git", // required
         children: ["/git/cheat_sheet"]
@@ -36,6 +38,7 @@ module.exports = {
         title: "Javascript", // required
         children: [
           "/javascript/object",
+          "/javascript/array",
           "/javascript/event",
           "/javascript/closure"
         ]
