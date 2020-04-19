@@ -1,4 +1,12 @@
 module.exports = {
+  plugins: [
+    [
+      "@vuepress/search",
+      {
+        searchMaxSuggestions: 10
+      }
+    ]
+  ],
   locales: {
     "/": {
       lang: "ja"
@@ -45,7 +53,7 @@ module.exports = {
       },
       {
         title: "Vue", // required
-        children: ["/vue/cheat_sheet"]
+        children: ["/vue/cheat_sheet", "/vue/comparison"]
       },
       {
         title: "Ruby", // required
