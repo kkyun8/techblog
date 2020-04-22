@@ -36,11 +36,12 @@ module.exports = {
         children: ["/docker/cheat_sheet", "/docker/docker"]
       },
       {
-        title: "Sql" // required
+        title: "Database", // required
+        children: ["/database/mysql", "/database/oracle", "/database/plsql"]
       },
       {
         title: "Java", // required
-        children: ["/java/cheat_sheet", "/java/spring_boot"]
+        children: ["/java/cheat_sheet", "/java/spring_boot", "java/think"]
       },
       {
         title: "Javascript", // required
@@ -53,7 +54,7 @@ module.exports = {
       },
       {
         title: "Vue", // required
-        children: ["/vue/cheat_sheet", "/vue/comparison"]
+        children: ["/vue/cheat_sheet", "/vue/comparison", "vue/think"]
       },
       {
         title: "Ruby", // required

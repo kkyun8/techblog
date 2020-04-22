@@ -16,7 +16,7 @@
 
 ## Javascript Event
 
-#### コンポーネントから addEventListener を実装したい場合
+#### コンポーネントから keydown イベント →→→ addEventListener を実装したい場合
 
 ```javascript
   created() {
