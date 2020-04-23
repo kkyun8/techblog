@@ -23,3 +23,11 @@ object.test = new Object();
 object.test.a = 1;
 object.test.b = "b";
 ```
+
+### Object の key と value 取得
+
+```javascript
+for (const [key, value] of Object.entries(object)) {
+  //key value
+}
+```

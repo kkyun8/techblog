@@ -91,6 +91,32 @@ console.log(array2);
 //> Array [2, 4]
 ```
 
+### Some
+
+配列の全ての要素に対して条件を確認し、結果に True が存在する場合、処理を止めて、true をリターン
+＊配列に要素がない場合、false になる
+
+```javascript
+var array = ["a", "b", "c"];
+const result = array.some(e => e === "b");
+//result = true
+```
+
+### 活用
+
+配列の中で特定の条件をまたすものをリターン
+array の中で id が一致する要素だけ、unique にセットされる
+＊一致しない場合、初期値のみリターン
+
+```javascript
+const unique = array.reduce((prev, now) => {
+  if (!prev.some(e => e.id === now.id)) {
+    prev.push(now);
+  }
+  return prev;
+}, []);
+```
+
 ## for in、for of、forEach の比較
 
 ### 追加予定 TODO
