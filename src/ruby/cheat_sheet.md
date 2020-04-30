@@ -43,6 +43,38 @@ end
 
 ## Model
 
+### 複数のprimary-key composite_primary_keys
+
+RalisからDBに複数のprimary-keyを設定したい場合、以下のライブラリーを使ったら便利
+
+<https://github.com/composite-primary-keys/composite_primary_keys>
+
+config/environments/development.rb
+
+```ruby
+  # ...
+  require 'composite_primary_keys'
+end
+```
+
+Migrate
+
+```ruby
+    create_table :parents, primary_key: %w(name address) do |t|
+      t.string  :name,    limit: 16,  default: '',  null: false
+      t.string  :address, limit: 255, default: '',  null: false
+      t.timestamps
+    end
+```
+
+Model
+
+```ruby
+class User < ApplicationRecord
+  self.primary_keys = :name, :address #<-
+end
+```
+
 ### Association
 
 belongs_to「1対1」=
@@ -123,7 +155,7 @@ end
 has_and_belongs_to_many「多対多」（２つのテーブルのみ、結合用のテーブルが必要。）
 
 ```ruby
- #テーブル「head_item」が存在。head_item.head.id head_item.item.id 
+ #テーブル「head_item」が存在。head_item.head.id head_item.item.id
 class Head < ApplicationRecord
   has_and_belongs_to_many :item
 end
