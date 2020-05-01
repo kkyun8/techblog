@@ -113,3 +113,11 @@ git stash drop [stash]
 git stash show -p | git apply -R //最近のもの対象
 git stash show -p [stash 이름] | git apply -R
 ```
+
+### Etc
+
+コミット大文字、小文字認識設定（フォルダー名を大文字→小文字にしてもgitは認識しない）
+
+```bash
+git config core.ignorecase false
+```

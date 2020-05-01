@@ -119,6 +119,7 @@ const unique = array.reduce((prev, now) => {
   }
   return prev;
 }, []);
+//}, []);←は初期値
 ```
 
 重複除外
