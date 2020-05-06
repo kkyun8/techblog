@@ -1,5 +1,21 @@
 # cheat sheet
 
+## 特徴
+
+### symbol
+
+### hash
+
+```ruby
+strhash={"key1" => "value1", "key2" => "value2", "key3" => "value3"}
+symbolhash={key1: "value1", key2: "value2", key3: "value3"}
+p strhash["key1"] # => "value1"
+p strhash[:key1]  # => nil
+  
+p symbolhash["key1"]# => nil
+p symbolhash[:key1] # => "value1"
+```
+
 ## Migrate
 
 ### Migrate class
@@ -36,7 +52,7 @@ end
 ```ruby
 class RemoveUsersToName < ActiveRecord::Migration
   def change
-    remove_column :name, :users
+    remove_column :users, :name #Table > Column
   end
 end
 ```
