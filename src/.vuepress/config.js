@@ -25,7 +25,8 @@ module.exports = {
     sidebar: [
       ["/about", "About"],
       {
-        title: "Web Fullstack"
+        title: "Web Fullstack",
+        children: ["/web/backend","/web/frontend","/web/server"]
       },
       {
         title: "Git", // required
@@ -58,7 +59,7 @@ module.exports = {
       },
       {
         title: "Ruby", // required
-        children: ["/ruby/cheat_sheet"]
+        children: ["/ruby/cheat_sheet", "/ruby/rails"]
       },
       {
         title: "Php", // required

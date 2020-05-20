@@ -18,6 +18,26 @@ p symbolhash[:key1] # => "value1"
 
 ## Migrate
 
+### Migrate function
+
+```bash
+rails db:migrate
+```
+
+やり直し
+
+```bash
+rails db:rollback
+rails db:migrate VERSION=0
+```
+
+リセット（ db:reset->db:seedも実行される）
+
+```bash
+db:reset
+db:migrate:reset
+```
+
 ### Migrate class
 
 キャメルケースorケバブケースでクラス作成
