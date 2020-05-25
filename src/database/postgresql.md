@@ -35,3 +35,9 @@ update example set jsoncolumn1 = jsoncolumn1 || '{"name":"update","md_file":"tes
 update example set jsoncolumn1 = jsoncolumn1 - 'md_file' where value @> '{"name":"update"}'
 update example set jsoncolumn1 = jsoncolumn1 #- '{address,postal_code}' where value @> '{"aaa":"ddd"}
 ```
+
+### INHERITS 承継
+
+TODO:
+
+https://www.postgresql.jp/document/9.1/html/ddl-inherit.html

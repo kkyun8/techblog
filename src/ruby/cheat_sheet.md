@@ -16,6 +16,22 @@ p symbolhash["key1"]# => nil
 p symbolhash[:key1] # => "value1"
 ```
 
+## Controller Model
+
+### Create
+
+```bash
+rails generate controller users
+rails g model users
+```
+
+### Delete
+
+```bash
+rails destroy controller user
+rails destroy model user
+```
+
 ## Migrate
 
 ### Migrate function
@@ -47,6 +63,13 @@ rails generate migration クラス名
 rails generate migration Addカラム名Toテーブル名 カラム名:データ型
 rails g migration change_datatype_カラム名_of_テーブル名
 rails g migration removeカラム名_to_テーブル名 カラム名 of removeカラム名_From_テーブル名
+
+rails generate migration delete_users
+class DeleteUsers < ActiveRecord::Migration[5.1]
+  def change
+    drop_table :users
+  end
+end
 ```
 
 クラス削除

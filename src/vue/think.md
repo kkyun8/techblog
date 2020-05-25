@@ -10,6 +10,10 @@ TODO
 
 例：ユーザー情報、認証API、エラーメッセージなど
 
+### VuexのmapGettersにただのstateをリターンするのは避けた方がいいでは
+
+mapStateとmapGetterを混用しないようにする
+
 #### API処理は必ずVuexを使うべきか
 
 必ずStoreにいれる必要はないので、全体構成を考えて設計することが重要。

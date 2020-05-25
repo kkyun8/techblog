@@ -111,7 +111,22 @@ git stash drop [stash]
 
 ```bash
 git stash show -p | git apply -R //最近のもの対象
-git stash show -p [stash 이름] | git apply -R
+git stash show -p [stash 名] | git apply -R
+```
+
+### Git Clean
+
+```bash
+git clean -f <path> //file削除
+git clean -fd //file dir削除
+git clean -fd --dry-run //check
+```
+
+### Git Diff
+
+```bash
+git diff --name-status //変更されたファイル名とステータス
+git diff --name-only
 ```
 
 ### Etc

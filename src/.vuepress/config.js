@@ -18,7 +18,7 @@ module.exports = {
   themeConfig: {
     description: "description",
     nav: [
-      { text: "About", link: "/about/" },
+      { text: "About", link: "/about" },
       { text: "Contact", link: "/contact" }
       // { text: "Github", link: "/" }
     ],
@@ -63,7 +63,7 @@ module.exports = {
       },
       {
         title: "Php", // required
-        children: ["/php/cheat_sheet"]
+        children: ["/php/cheat_sheet", "/php/laravel"]
       }
     ],
     sidebarDepth: 2
