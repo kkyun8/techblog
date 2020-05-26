@@ -3,14 +3,14 @@ module.exports = {
     [
       "@vuepress/search",
       {
-        searchMaxSuggestions: 10
-      }
-    ]
+        searchMaxSuggestions: 10,
+      },
+    ],
   ],
   locales: {
     "/": {
-      lang: "ja"
-    }
+      lang: "ja",
+    },
   },
   base: "/techblog/",
   dest: "docs/",
@@ -19,30 +19,35 @@ module.exports = {
     description: "description",
     nav: [
       { text: "About", link: "/about" },
-      { text: "Contact", link: "/contact" }
+      { text: "Contact", link: "/contact" },
       // { text: "Github", link: "/" }
     ],
     sidebar: [
       ["/about", "About"],
       {
         title: "Web Fullstack",
-        children: ["/web/backend","/web/frontend","/web/server"]
+        children: [
+          "/web/backend",
+          "/web/frontend",
+          "/web/server",
+          "/web/framework",
+        ],
       },
       {
         title: "Git", // required
-        children: ["/git/cheat_sheet"]
+        children: ["/git/cheat_sheet"],
       },
       {
         title: "Docker", // required
-        children: ["/docker/cheat_sheet", "/docker/docker"]
+        children: ["/docker/cheat_sheet", "/docker/docker"],
       },
       {
         title: "Database", // required
-        children: ["/database/mysql", "/database/oracle", "/database/plsql"]
+        children: ["/database/mysql", "/database/oracle", "/database/plsql"],
       },
       {
         title: "Java", // required
-        children: ["/java/cheat_sheet", "/java/spring_boot", "java/think"]
+        children: ["/java/cheat_sheet", "/java/spring_boot", "java/think"],
       },
       {
         title: "Javascript", // required
@@ -50,22 +55,22 @@ module.exports = {
           "/javascript/object",
           "/javascript/array",
           "/javascript/event",
-          "/javascript/closure"
-        ]
+          "/javascript/closure",
+        ],
       },
       {
         title: "Vue", // required
-        children: ["/vue/cheat_sheet", "/vue/comparison", "vue/think"]
+        children: ["/vue/cheat_sheet", "/vue/comparison", "vue/think"],
       },
       {
         title: "Ruby", // required
-        children: ["/ruby/cheat_sheet", "/ruby/rails"]
+        children: ["/ruby/cheat_sheet", "/ruby/rails"],
       },
       {
         title: "Php", // required
-        children: ["/php/cheat_sheet", "/php/laravel"]
-      }
+        children: ["/php/cheat_sheet", "/php/laravel"],
+      },
     ],
-    sidebarDepth: 2
-  }
+    sidebarDepth: 2,
+  },
 };
