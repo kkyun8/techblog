@@ -46,6 +46,10 @@ module.exports = {
         children: ["/database/mysql", "/database/oracle", "/database/plsql"],
       },
       {
+        title: "Aws", // required
+        children: ["/aws/s3"],
+      },
+      {
         title: "Java", // required
         children: ["/java/cheat_sheet", "/java/spring_boot", "java/think"],
       },
