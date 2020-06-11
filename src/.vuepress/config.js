@@ -43,7 +43,11 @@ module.exports = {
       },
       {
         title: "Database", // required
-        children: ["/database/mysql", "/database/oracle", "/database/plsql"],
+        children: [
+          "/database/mysql",
+          "/database/postgresql",
+          "/database/oracle",
+        ],
       },
       {
         title: "Aws", // required

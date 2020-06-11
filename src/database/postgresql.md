@@ -1,4 +1,4 @@
-# Plsql
+# Postgresql
 
 ### Jsonb
 
@@ -36,8 +36,23 @@ update example set jsoncolumn1 = jsoncolumn1 - 'md_file' where value @> '{"name"
 update example set jsoncolumn1 = jsoncolumn1 #- '{address,postal_code}' where value @> '{"aaa":"ddd"}
 ```
 
+#### Json data select
+
+Array
+
+```sql
+select JSON_EACH((data->>'array')::JSON) AS value from table;
+```
+
+取得例
+
+```sql
+select example::TEXT, example::JSON, example::JSON->>'name' -- json中参照
+from table;
+```
+
 ### INHERITS 承継
 
 TODO:
 
-https://www.postgresql.jp/document/9.1/html/ddl-inherit.html
+<https://www.postgresql.jp/document/9.1/html/ddl-inherit.html>
