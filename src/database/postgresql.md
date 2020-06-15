@@ -1,10 +1,12 @@
 # Postgresql
 
-### Jsonb
+### Jsonb /Json
 
 一般的のデータ型の扱い方と違いがあるので要チェック。
 詳しくは以下を参考
 <https://www.postgresql.jp/document/9.4/html/functions-json.html>
+
+<https://www.enterprisedb.com/ja/ja/nosql-technical-information>
 
 ```sql
 insert into example (jsoncolumn1, jsoncolumn2)
@@ -56,3 +58,15 @@ from table;
 TODO:
 
 <https://www.postgresql.jp/document/9.1/html/ddl-inherit.html>
+
+### Group By 結合
+
+#### 文字列　結合
+
+```sql
+select id string_agg(name, '/') AS name, string_agg(item->>'name', ', ') AS item_name from table group by id
+```
+
+```sql
+select id string_agg(name, '/') AS name, string_agg(item->>'name', ', ') AS item_name from table group by id
+```
