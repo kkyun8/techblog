@@ -38,6 +38,12 @@ update example set jsoncolumn1 = jsoncolumn1 - 'md_file' where value @> '{"name"
 update example set jsoncolumn1 = jsoncolumn1 #- '{address,postal_code}' where value @> '{"aaa":"ddd"}
 ```
 
+### json 関連変更ロジック
+
+```sql
+select json_build_object('name',name), array_to_json('{{1,5},{99,100}}'::int[]) , row_to_json(row(1,'foo')) from table
+```
+
 #### Json data select
 
 Array
@@ -67,6 +73,8 @@ TODO:
 select id string_agg(name, '/') AS name, string_agg(item->>'name', ', ') AS item_name from table group by id
 ```
 
+#### Json 　結合
+
 ```sql
-select id string_agg(name, '/') AS name, string_agg(item->>'name', ', ') AS item_name from table group by id
+select id json_agg(name) AS name from table group by id
 ```
