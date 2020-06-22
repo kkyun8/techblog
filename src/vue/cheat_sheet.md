@@ -1,5 +1,20 @@
 # cheat sheet
 
+## Vuex state get set
+
+```javascript
+    computed: {
+      user: {
+        get () {
+          return this.$store.state.user
+        },
+        set (val) {
+          this.$store.commit('setUser', val)
+        }
+      }
+    },
+```
+
 ## Prop
 
 ### 親子関係
