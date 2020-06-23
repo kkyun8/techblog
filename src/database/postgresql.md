@@ -76,5 +76,5 @@ select id string_agg(name, '/') AS name, string_agg(item->>'name', ', ') AS item
 #### Json 　結合
 
 ```sql
-select id json_agg(name) AS name from table group by id
+select id json_agg('name',name) AS name from table group by id
 ```
