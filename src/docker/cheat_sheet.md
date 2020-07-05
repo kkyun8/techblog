@@ -12,6 +12,15 @@ compose down
 docker-compose down
 ```
 
+実行中 Log、＊DockerComposeUp 実行に失敗した場合確認
+
+```bash
+docker-compose logs -f nginx
+```
+
+id 確認
+<http://172.23.0.3/>
+
 no-cache build
 
 ```bash
