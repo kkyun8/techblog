@@ -3,7 +3,7 @@
 ## Spring Boot VS Spring
 
 簡単に言うと、既存 Spring でプロジェクト環境設定する作業が不便だったので
-SpringBoot では AutoConfiguration を活用して面倒い設定作業を簡単にできるようになった
+SpringBoot では AutoConfiguration を活用して（spring-boot-starter-\*）面倒い設定作業を簡単にできるようになった
 
 ## Maven VS Gradle
 
@@ -39,7 +39,109 @@ Spring Data JPA は、Java Persistence API（JPA）のリポジトリサポー�
 
 https://spring.pleiades.io/spring-data/jpa/docs/current/reference/html/#preface
 
+### Entity
+
+```Java
+@Entity
+@Table(name = "user")
+public class User
+{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long seq;
+
+    @Column(name = "email")
+    private String email;
+
+    @Lob
+    @Column(name="password")
+    private String password;
+
+    @Column(name = "name")
+    private String name;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name="create_at")
+    private Date createAt;
+
+}
+```
+
+@Entity：JPA で利用する Entity を指定する。name 設定も可能。
+
+@Table、@Column：マッピングテーブル、カラム指定。カラムの size、length 定義も可能。
+
+@GeneratedValue：基本キー設定。
+
+```Java
+     @GeneratedValue(strategy = GenerationType.AUTO)  //DBによってIDENTITY、SEQUENCE、TABLEの中で自動選択
+     @GeneratedValue(strategy = GenerationType.IDENTITY)  //mysql、PostgresSQL、SQL Server、DB2なら利用可能
+     @GeneratedValue(strategy = GenerationType.SEQUENCE)  //DBシーケンス、PostgresSQL、DB2、H2なら利用可能
+     @GeneratedValue(strategy = GenerationType.TABLE)  //キー作成テーブル可能
+```
+
+@Temporal：カラムが日付タイプの場合
+
+@Enumerated：カラムを ENUM タイプで使いたい場合
+
 ### Paging
+
+Entity 作成->Repository 作成->JpaRepository を extends するだけでページング可能
+
+```Java
+/** UserRepository */
+public interface UserRepository extends JpaRepository<User, Long>
+{
+}
+
+/** UserRepositoryTest */
+@Test
+public void save()
+{
+	userRepository.save(User.builder().userId("user1").password("pass1").build());
+}
+
+@Test
+public void findAll()
+{
+	userRepository.findAll();
+}
+```
+
+パラメーターを Page or List の設定でページング処理ができるか、パラメーターを Page にした方が細かい処理ができる
+
+```Java
+Page<Member> findByName (String name, Pageable pageable);
+
+List<Member> findByName (String name, Pageable pageable);
+```
+
+JPA のページングサポート関数については以下の PageImpl を参考
+
+https://spring.pleiades.io/spring-data/commons/docs/current/api/org/springframework/data/domain/PageImpl.html
+
+### SQL Custom JPQL/NativeQuery
+
+SQL をカスタムしたい場合、JPQL or NativeQuery を利用する。
+
+NativeQuery は文字の通りに java に書いた sql をそのまま実行すること。
+
+JPQL は「Java Persistence Query Language」JPA で使用できるクエリ言語。
+sql 内に if 文みたいな物を作成可能
+https://spring.pleiades.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation
+
+```Java
+// NativeQuery
+@Query(
+ value = “SELECT * FROM USERS u WHERE u.status = 1”,
+ nativeQuery = true)
+Collection<User> findAllActiveUsersNative();
+
+// JPQL
+@Query(**”SELECT u FROM User u WHERE u.status = 1”**)
+Collection<User> findAllActiveUsers();
+
+```
 
 ### Validate Custom
 
