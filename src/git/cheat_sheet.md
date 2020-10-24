@@ -14,6 +14,12 @@ git checkout branch_name -- file_name
 git checkout -b local_branch_name origin/remote_branch_name
 ```
 
+##### Get Remote Branch
+
+```bash
+git checkout -t origin/BRANCH_NAME
+```
+
 ##### Branch Delete
 
 ```bash
@@ -32,12 +38,6 @@ git branch -r
 git branch -a
 ```
 
-##### Get Remote Branch
-
-```bash
-git checkout -t origin/BRANCH_NAME
-```
-
 ### Git Log
 
 ```bash
@@ -48,9 +48,24 @@ git log --stat
 git log --name-status
 ```
 
-### Merge、Commit Rollback
+### repository を fork して、git 環境を作る
 
-##### git log で ORIG_HEAD 確認
+github、bitbuket などの CUI??Web から fork をクリックして指定した環境に fork repository を作成する
+＊fork で作成された branch からは元の repository
+
+すると、指定された環境に repository が作成される、fork した物をローカルに clone する
+
+元の repository を remote 追加
+
+```bash
+git remote add main(origin以外設定) URL
+```
+
+自由に作業して、push or pull request で元の repository にデーターを追加する
+
+### Merge、Commit Rollback して、push 履歴を取り消す
+
+##### ①git log で ORIG_HEAD 確認
 
 ```bash
 git log
@@ -67,11 +82,32 @@ Date:   Mon Jul 16 23:16:14 2012 +0900
     first commit
 ```
 
-##### reset で　ロールバック
+##### ②reset で　ロールバック
+
+reset すると、指定したコミットが最後のコミットの状態になる
 
 ```bash
 git reset --hard 326fc9f70d022afdd31b0072dbbae003783d77ed
 ```
+
+##### ③reset した物を remote に 強制 Push する
+
+ローカルのヒストリがリモートのヒストリより過去なので、普通の Push を使ったらエラーが発生する
+
+```bash
+git push origin master //error
+```
+
+force を使って Push する
+＊Commit を取り消すより、強制的に戻すことに近い
+
+```bash
+git push -f origin master
+```
+
+##### revert で不要な commit を削除した revert commit 追加
+
+TODO:
 
 ### Git Stash
 
@@ -131,7 +167,7 @@ git diff --name-only
 
 ### Etc
 
-コミット大文字、小文字認識設定（フォルダー名を大文字→小文字にしてもgitは認識しない）
+コミット大文字、小文字認識設定（フォルダー名を大文字 → 小文字にしても git は認識しない）
 
 ```bash
 git config core.ignorecase false
