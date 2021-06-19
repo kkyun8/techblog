@@ -5,6 +5,40 @@
 簡単に言うと、既存 Spring でプロジェクト環境設定する作業が不便だったので
 SpringBoot では AutoConfiguration を活用して（spring-boot-starter-\*）面倒い設定作業を簡単にできるようになった
 
+## Servlet、Tomcat、そしてSpring Bootの仕組み
+
+### Servlet
+Servletはざっくり説明すると「Webサーバープログラミングのため作成されたJAVAコード」だ。
+
+なのでSpringBootだけではなく、JAVAのWebフレームワークなら、Servletが使われてる。
+
+### Tomcat
+そしてこのServletを管理するため、Tomcatが使われてる。
+
+代表的なWeb Application Server（Servlet Container） であるTomcatは、SpringBootに基本内蔵されてる。
+
+管理というのは、Requestが来たら、どのServletを実行するのかTomcatがコントロールしてること。（mappingによる判断）
+
+ServletもTomcatも、HttpServletを承継
+1. RequetがあるとServletコンテナー（Tomcat）がスレットを作る
+1. 作成されたスレットがServletオブジェクトを作る
+1. 新規ServletオブジェクトでDB参照・データー加工など様々な作業を行う。
+
+- スレットの数は無限ではない
+- 作業が終わったスレットは再利用される
+- 最終的にはHttpServletRequet、HttpServletResponseが作成される。
+
+
+### Spring Boot
+メインクラスの@SpringBootApplicationは以下のアノテーションが結合されてるものだ。
+1. @SpringBootConfiguration
+1. @ComponentScan
+1. @EnableAutoConfiguration
+
+- SpringBootはBeanを２回登録する。ComponentScanで登録して、EnableAutoConfigurationで追加Beanを登録する。
+
+TODO: DI・DependencyInjection 依存性の注入
+
 ## Maven VS Gradle
 
 Spring Boot プロジェクトを作成する際に、ビルド管理を Maven or Gradle どっちかにしないと行けないか
